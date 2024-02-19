@@ -31,8 +31,6 @@ function getCertificate() {
 
 // enroll(progress);
 // progress(getCertificate);
-// progress(getCertificate);
-// progress(getCertificate);
 
 enroll(function () {        //anonimus function call system 
     progress(getCertificate);
