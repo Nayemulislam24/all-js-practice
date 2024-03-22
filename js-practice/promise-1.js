@@ -39,10 +39,6 @@ function getCertificate() {
 }
 
 // function call
-// function call
-// function call
-// function call
-// function call
 
 enroll()
   .then(progress)
