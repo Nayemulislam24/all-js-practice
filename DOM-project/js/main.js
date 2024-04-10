@@ -4,11 +4,13 @@ const milestonesData = JSON.parse(data).data;
 // load milestone data
 function loadMilestone() {
   const milestones = document.querySelector(".milestones");
-  milestones.innerHTML = `${milestonesData.map(function(milestone){
-    return ` <div class="milestone border-b">
+  milestones.innerHTML = `${milestonesData
+    .map(function (milestone) {
+      return ` 
+      <div class="milestone border-b">
         <div class="flex">
           <div class="checkbox"><input type="checkbox" /></div>
-          <div>
+          <div onclick="openMilestone(this, ${milestone._id})">
             <p>
               Milestone ${milestone.name} name
               <span><i class="fas fa-chevron-down"></i></span>
@@ -16,13 +18,55 @@ function loadMilestone() {
           </div>
         </div>
         <div class="hidden_panel">
+        ${milestone.modules
+          .map(function (module) {
+            return `
           <div class="module border-b">
-            <p>Module Name</p>
-          </div>
+            <p>${module.name}</p>
+          </div>`;
+          })
+          .join(" ")}
         </div>
       </div>`;
-  }).join("")}`;
+    })
+    .join(" ")}`;
 }
 
+function openMilestone(mileStoneElement, id) {
+  const currentPanel = mileStoneElement.parentNode.nextElementSibling;
+  const shownPanel = document.querySelector(".show");
+  const active = document.querySelector(".active");
+  // first remove previous active class if any [other than the clicked one]
+  if (!mileStoneElement.classList.contains("active") && active) {
+    active.classList.remove("active");
+  }
+  mileStoneElement.classList.toggle("active");
+
+  // first hide previous panel if open [other than the clicked element]
+  if (!currentPanel.classList.contains("show") && shownPanel) {
+    shownPanel.classList.remove("show");
+  }
+  currentPanel.classList.toggle("show");
+  showMilestone(id);
+}
+
+function showMilestone(id) {
+  const milestoneImage = document.querySelector(".milestoneImage");
+  const title = document.querySelector(".title");
+  const details = document.querySelector(".details");
+  milestoneImage.style.opacity = "0";
+  milestoneImage.src = milestonesData[id].image;
+  title.innerText = milestonesData[id].name;
+  details.innerText = milestonesData[id].description;
+}
+// listen for hero image load
+const milestoneImage = document.querySelector(".milestoneImage");
+milestoneImage.onload = function () {
+  this.style.opacity = "1";
+};
+
+function markMilestone(params) {
+  
+}
 //functon call
 loadMilestone();
