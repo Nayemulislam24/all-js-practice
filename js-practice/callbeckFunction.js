@@ -1,5 +1,5 @@
 const paymentSuccess = true;
-const marks = 90;
+const marks = 70;
 
 function enroll(callbeck) {
   console.log("Course enrollment is in progress .");
@@ -23,7 +23,7 @@ function progress(callbeck) {
   }, 3000);
 }
 function getCertificate() {
-  console.log("Progress your certificate");
+  console.log("Progress your certificate"); 
   setTimeout(function () {
     console.log('Congrats! You got the certificate');
   }, 1000);

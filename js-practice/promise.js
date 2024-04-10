@@ -1,4 +1,4 @@
-const staus = true;
+const staus = false;
 console.log('task 1');
 //promice define 
 const promisePractice = new Promise(function(resolve,reject) {
