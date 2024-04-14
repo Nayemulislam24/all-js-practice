@@ -1,4 +1,6 @@
 // select dom elements
+// select dom elements
+// select dom elements
 const confirm = document.getElementById("confirm");
 const prompt = document.getElementById("prompt");
 
