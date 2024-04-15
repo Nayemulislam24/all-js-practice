@@ -8,6 +8,8 @@ function setCookie(cname, cvalue, exdays) {
 
 function getCookie(cname) {
     // name=Sumit Saha; username=sumit
+    // name=Sumit Saha; username=sumit
+    // name=Sumit Saha; username=sumit
 
     let name = cname + "=";
     let ca = document.cookie.split(";");
