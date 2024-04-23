@@ -21,6 +21,7 @@ function startInterval() {
     }, 1000);
 }
 
+
 function stopInterval() {
     clearInterval(intervalInstance);
 }
